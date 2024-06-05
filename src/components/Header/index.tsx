@@ -4,7 +4,11 @@ import { FaArrowLeft } from 'react-icons/fa6'
 
 import './styles.css'
 
-const Header = () => {
+interface IProps {
+  onClickButton?: () => void
+}
+
+const Header = ({ onClickButton }:IProps ) => {
   const location = useLocation();
 
   const [showBackButton, setShowBackButton] = useState(false);
@@ -21,7 +25,7 @@ const Header = () => {
   return (
     <header>
       {showBackButton && (
-        <button>
+        <button onClick={onClickButton}>
           <FaArrowLeft color='#ffffff' size={24} />
         </button>
       )}
